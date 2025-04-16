@@ -1,0 +1,53 @@
+2025-04-16 11:02:04 | INFO | cli.shell:do_bye:37 - Shutting down commitpal..
+2025-04-16 11:02:04 | SUCCESS | cli.shell:do_bye:38 - Done
+2025-04-16 11:02:58 | INFO | utils.services:generate_commit_message:36 - Generating commit message...
+2025-04-16 11:02:58 | CRITICAL | utils.services:generate_commit_message:47 - Error: Error code: 401 - {'error': {'message': 'Invalid API Key', 'type': 'invalid_request_error', 'code': 'invalid_api_key'}}
+2025-04-16 11:02:58 | SUCCESS | cli.shell:do_diff:20 - Commit message generated!
+2025-04-16 11:02:58 | INFO | utils.services:auto_push_to_github:89 - Staging changes...
+2025-04-16 11:02:58 | INFO | utils.services:auto_push_to_github:92 - Committing changes...
+2025-04-16 11:02:58 | ERROR | utils.services:auto_push_to_github:99 - Git command failed: Command '['git', 'commit', '-m', '']' returned non-zero exit status 1.
+2025-04-16 11:02:58 | ERROR | cli.shell:do_diff:28 - An error has been caught in function 'do_diff', process 'MainProcess' (10302), thread 'MainThread' (8428963904):
+Traceback (most recent call last):
+
+  File "/opt/homebrew/Caskroom/miniconda/base/bin/comitpal", line 8, in <module>
+    sys.exit(app())
+    │   │    └ <function app at 0x1052318a0>
+    │   └ <built-in function exit>
+    └ <module 'sys' (built-in)>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/comitpal_core/main.py", line 8, in app
+    ComitPal().cmdloop()
+    └ <class 'cli.shell.ComitPal'>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/cmd.py", line 138, in cmdloop
+    stop = self.onecmd(line)
+           │    │      └ 'diff --auto-push'
+           │    └ <function Cmd.onecmd at 0x1075477e0>
+           └ <cli.shell.ComitPal object at 0x1051a2a80>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/cmd.py", line 217, in onecmd
+    return func(arg)
+           │    └ '--auto-push'
+           └ <bound method ComitPal.do_diff of <cli.shell.ComitPal object at 0x1051a2a80>>
+> File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/cli/shell.py", line 28, in do_diff
+    auto_push_to_github(commit_message)
+    │                   └ ''
+    └ <function auto_push_to_github at 0x107546b60>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/utils/services.py", line 93, in auto_push_to_github
+    subprocess.run(["git", "commit", "-m", commit_message], check=True)
+    │          │                           └ ''
+    │          └ <function run at 0x105457560>
+    └ <module 'subprocess' from '/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/subprocess.py'>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 573, in run
+    raise CalledProcessError(retcode, process.args,
+          │                  │        │       └ ['git', 'commit', '-m', '']
+          │                  │        └ <Popen: returncode: 1 args: ['git', 'commit', '-m', '']>
+          │                  └ 1
+          └ <class 'subprocess.CalledProcessError'>
+
+subprocess.CalledProcessError: Command '['git', 'commit', '-m', '']' returned non-zero exit status 1.
+2025-04-16 11:02:58 | SUCCESS | cli.shell:do_diff:29 - Changes pushed to GitHub successfully!
+2025-04-16 11:03:09 | INFO | cli.shell:do_bye:37 - Shutting down commitpal..
+2025-04-16 11:03:09 | SUCCESS | cli.shell:do_bye:38 - Done
+2025-04-16 11:03:59 | INFO | utils.services:generate_commit_message:36 - Generating commit message...
+2025-04-16 11:04:00 | SUCCESS | cli.shell:do_diff:20 - Commit message generated!
+2025-04-16 11:04:06 | INFO | utils.services:generate_commit_message:36 - Generating commit message...
+2025-04-16 11:04:06 | SUCCESS | cli.shell:do_diff:20 - Commit message generated!
+2025-04-16 11:04:06 | INFO | utils.services:auto_push_to_github:89 - Staging changes...
