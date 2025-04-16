@@ -1,7 +1,14 @@
 [package]
 name = "grrs"
 version = "0.1.0"
-edition = "2024"
+authors = ["Hardik Jaiswal pseudopythonic@gmail.com"]
+license = "MIT OR Apache-2.0"
+description = "A tool to search files"
+readme = "README.md"
+homepage = "https://github.com/pythonicforge/grrs"
+repository = "https://github.com/pythonicforge/grrs"
+keywords = ["cli", "search", "demo"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
