@@ -15,7 +15,7 @@ Run the program with the following arguments:
 #### Example
 
 ```bash
-cargo run -- "search_pattern" /path/to/file.txt
+grrs-hardik "search_pattern" /path/to/file.txt
 ```
 
 This will search for the `search_pattern` in the specified file and print all lines containing the pattern.
