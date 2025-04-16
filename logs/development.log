@@ -93,3 +93,6 @@ subprocess.CalledProcessError: Command '['git', 'push']' returned non-zero exit 
 2025-04-16 11:04:06 | SUCCESS | cli.shell:do_diff:29 - Changes pushed to GitHub successfully!
 2025-04-16 11:04:17 | INFO | cli.shell:do_bye:37 - Shutting down commitpal..
 2025-04-16 11:04:17 | SUCCESS | cli.shell:do_bye:38 - Done
+2025-04-16 11:08:51 | INFO | utils.services:generate_commit_message:36 - Generating commit message...
+2025-04-16 11:08:51 | SUCCESS | cli.shell:do_diff:20 - Commit message generated!
+2025-04-16 11:08:51 | INFO | utils.services:auto_push_to_github:89 - Staging changes...
