@@ -1,3 +1,6 @@
+extern crate anyhow;
+extern crate clap;
+
 use anyhow::{Context, Result};
 use clap::Parser;
 
