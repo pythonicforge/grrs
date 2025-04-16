@@ -51,3 +51,45 @@ subprocess.CalledProcessError: Command '['git', 'commit', '-m', '']' returned no
 2025-04-16 11:04:06 | INFO | utils.services:generate_commit_message:36 - Generating commit message...
 2025-04-16 11:04:06 | SUCCESS | cli.shell:do_diff:20 - Commit message generated!
 2025-04-16 11:04:06 | INFO | utils.services:auto_push_to_github:89 - Staging changes...
+2025-04-16 11:04:06 | INFO | utils.services:auto_push_to_github:92 - Committing changes...
+2025-04-16 11:04:06 | INFO | utils.services:auto_push_to_github:95 - Pushing changes to GitHub...
+2025-04-16 11:04:06 | ERROR | utils.services:auto_push_to_github:99 - Git command failed: Command '['git', 'push']' returned non-zero exit status 128.
+2025-04-16 11:04:06 | ERROR | cli.shell:do_diff:28 - An error has been caught in function 'do_diff', process 'MainProcess' (11349), thread 'MainThread' (8428963904):
+Traceback (most recent call last):
+
+  File "/opt/homebrew/Caskroom/miniconda/base/bin/comitpal", line 8, in <module>
+    sys.exit(app())
+    │   │    └ <function app at 0x102a0d8a0>
+    │   └ <built-in function exit>
+    └ <module 'sys' (built-in)>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/comitpal_core/main.py", line 8, in app
+    ComitPal().cmdloop()
+    └ <class 'cli.shell.ComitPal'>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/cmd.py", line 138, in cmdloop
+    stop = self.onecmd(line)
+           │    │      └ 'diff --auto-push'
+           │    └ <function Cmd.onecmd at 0x104b2f7e0>
+           └ <cli.shell.ComitPal object at 0x10297ea80>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/cmd.py", line 217, in onecmd
+    return func(arg)
+           │    └ '--auto-push'
+           └ <bound method ComitPal.do_diff of <cli.shell.ComitPal object at 0x10297ea80>>
+> File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/cli/shell.py", line 28, in do_diff
+    auto_push_to_github(commit_message)
+    │                   └ 'fix(utils): Fix git commit failure on error.'
+    └ <function auto_push_to_github at 0x104b2eb60>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/utils/services.py", line 96, in auto_push_to_github
+    subprocess.run(["git", "push"], check=True)
+    │          └ <function run at 0x102c9f560>
+    └ <module 'subprocess' from '/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/subprocess.py'>
+  File "/opt/homebrew/Caskroom/miniconda/base/lib/python3.12/subprocess.py", line 573, in run
+    raise CalledProcessError(retcode, process.args,
+          │                  │        │       └ ['git', 'push']
+          │                  │        └ <Popen: returncode: 128 args: ['git', 'push']>
+          │                  └ 128
+          └ <class 'subprocess.CalledProcessError'>
+
+subprocess.CalledProcessError: Command '['git', 'push']' returned non-zero exit status 128.
+2025-04-16 11:04:06 | SUCCESS | cli.shell:do_diff:29 - Changes pushed to GitHub successfully!
+2025-04-16 11:04:17 | INFO | cli.shell:do_bye:37 - Shutting down commitpal..
+2025-04-16 11:04:17 | SUCCESS | cli.shell:do_bye:38 - Done
